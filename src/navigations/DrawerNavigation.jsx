@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import {ContactStackNavigator} from './StackNavigation';
+import { ContactStackNavigator } from './StackNavigation';
 
 import BottomTabsNavigator from './TabNavigation';
 import BecomeVolunteerScreen from '../screens/BecomeVolunteerScreen';
@@ -16,16 +16,21 @@ import GetHelpScreen from '../screens/GetHelpScreen';
 import ContactUsScreen from '../screens/ContactUsScreen';
 import DonateNowScreen from '../screens/DonateNowScreen';
 import LoginScreen from '../screens/Auth/LoginScreen';
+import CustomDrawer from './CustomDrawer';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
   return (
-    <Drawer.Navigator initialRouteName="HomeTabs">
+    <Drawer.Navigator initialRouteName="HomeTabs"
+      drawerContent={(props) => <CustomDrawer {...props} />}
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Drawer.Screen
         name="HomeTabs"
         component={BottomTabsNavigator}
-        options={{headerShown: false}}
       />
       <Drawer.Screen name="BecomeVolunteer" component={BecomeVolunteerScreen} />
       <Drawer.Screen name="About" component={AboutScreen} />
