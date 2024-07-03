@@ -24,6 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {mainBgColor} from './src/assets/Colors/colors';
+import {NavigationContainer} from '@react-navigation/native';
+import {MainStackNavigator} from './src/navigations/StackNavigation';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,44 +36,34 @@ function App() {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        {/* <Header /> */}
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          
-          
-        </View>
-      </ScrollView>
+    <SafeAreaView style={{flex: 1, backgroundColor: mainBgColor}}>
+      {/* <KeyboardAvoidingView style={{flex: 1}}> */}
+      <StatusBar backgroundColor={mainBgColor} />
+      <NavigationContainer>
+        {/* <BottomTabNavigator /> */}
+        <MainStackNavigator />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+// const styles = StyleSheet.create({
+//   sectionContainer: {
+//     marginTop: 32,
+//     paddingHorizontal: 24,
+//   },
+//   sectionTitle: {
+//     fontSize: 24,
+//     fontWeight: '600',
+//   },
+//   sectionDescription: {
+//     marginTop: 8,
+//     fontSize: 18,
+//     fontWeight: '400',
+//   },
+//   highlight: {
+//     fontWeight: '700',
+//   },
+// });
 
 export default App;
