@@ -7,7 +7,7 @@ const HomeScreen = ({navigation}) => {
     <View>
       <Button
         onPress={() => {
-          navigation.dispatch(DrawerActions.openDrawer());
+          navigation.dispatch(DrawerActions.toggleDrawer());
         }}
         title="Open"
       />

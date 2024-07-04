@@ -30,6 +30,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainStackNavigator } from './src/navigations/StackNavigation';
 import DrawerNavigation from './src/navigations/DrawerNavigation';
 import BottomTabsNavigator from './src/navigations/TabNavigation';
+import 'react-native-gesture-handler';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';

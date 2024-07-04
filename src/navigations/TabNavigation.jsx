@@ -18,9 +18,21 @@ const BottomTabsNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: 'absolute',
+          bottom: 25,
+          left: 20,
+          right: 20,
+          elevation: 0,
+          backgroundColor: '#ffffff',
+          borderRadius: 15,
+          height: 90,
+        },
       }}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Announcement" component={AnnouncementScreen} />
+      <Tab.Screen name="Donate Now" component={AnnouncementScreen} />
       <Tab.Screen name="Events" component={EventsScreen} />
       <Tab.Screen name="Programs" component={ProgramsScreen} />
     </Tab.Navigator>
